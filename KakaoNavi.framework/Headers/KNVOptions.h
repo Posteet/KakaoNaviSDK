@@ -26,10 +26,10 @@
  @constant KNVCoordTypeKATEC KATEC 좌표계.
  @constant KNVCoordTypeWGS84 WGS84 좌표계.
  */
-typedef enum : NSUInteger {
+typedef NS_ENUM(NSUInteger, KNVCoordType) {
     KNVCoordTypeKATEC = 1,
     KNVCoordTypeWGS84 = 2,
-} KNVCoordType;
+};
 
 /*!
  @abstract 차종(1~7)
@@ -41,7 +41,7 @@ typedef enum : NSUInteger {
  @constant KNVVehicleTypeSixth 6종(경차)
  @constant KNVVehicleTypeTwoWheel 이륜차
  */
-typedef enum : NSUInteger {
+typedef NS_ENUM(NSUInteger, KNVVehicleType) {
     KNVVehicleTypeFirst = 1,
     KNVVehicleTypeSecond = 2,
     KNVVehicleTypeThird = 3,
@@ -49,7 +49,7 @@ typedef enum : NSUInteger {
     KNVVehicleTypeFifth = 5,
     KNVVehicleTypeSixth = 6,
     KNVVehicleTypeTwoWheel = 7,
-} KNVVehicleType;
+};
 
 /*!
  @abstract 경로옵션
@@ -61,7 +61,7 @@ typedef enum : NSUInteger {
  @constant KNVRpOptionHighway Highway
  @constant KNVRpOptionNormal Normal
  */
-typedef enum : NSUInteger {
+typedef NS_ENUM(NSUInteger, KNVRpOption) {
     KNVRpOptionFast = 1,
     KNVRpOptionFree = 2,
     KNVRpOptionShortest = 3,
@@ -69,7 +69,7 @@ typedef enum : NSUInteger {
     KNVRpOptionWide = 5,
     KNVRpOptionHighway = 6,
     KNVRpOptionNormal = 8,
-} KNVRpOption;
+};
 
 /*!
  @class KNVOptions
