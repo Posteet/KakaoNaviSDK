@@ -27,6 +27,7 @@
  @class KNVService
  @abstract 카카오내비 API 호출을 담당하는 클래스.
  */
+DEPRECATED_MSG_ATTRIBUTE("Use 'KNVNavigationCenter' class.")
 @interface KNVService : NSObject
 
 /*!
