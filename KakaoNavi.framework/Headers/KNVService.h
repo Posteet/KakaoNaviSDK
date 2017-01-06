@@ -1,5 +1,5 @@
 /**
- * Copyright 2016 Kakao Corp.
+ * Copyright 2016-2017 Kakao Corp.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
  @class KNVService
  @abstract 카카오내비 API 호출을 담당하는 클래스.
  */
-DEPRECATED_MSG_ATTRIBUTE("Use 'KNVNavigationCenter' class.")
+DEPRECATED_MSG_ATTRIBUTE("Use 'KNVNaviLauncher' class.")
 @interface KNVService : NSObject
 
 /*!

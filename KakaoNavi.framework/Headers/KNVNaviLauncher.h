@@ -1,5 +1,5 @@
 /**
- * Copyright 2016 Kakao Corp.
+ * Copyright 2017 Kakao Corp.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,19 +15,17 @@
  */
 
 /*!
- @header KNVNavigationCenter.h
- 카카오내비 API 호출을 담당하는 클래스.
- */
+ @header KNVNaviLauncher.h
+ 카카오내비 실행을 담당하는 클래스.
+*/
 
 #import <UIKit/UIKit.h>
 
 @class KNVParams;
 
-/*!
- @class KNVNavigationCenter
- @abstract 카카오내비 API 호출을 담당하는 클래스.
- */
-@interface KNVNavigationCenter : NSObject
+NS_ASSUME_NONNULL_BEGIN
+
+@interface KNVNaviLauncher : NSObject
 
 /*!
  * @property enableWebNavi
@@ -37,20 +35,44 @@
 
 /*!
  * @property presentingViewController
- * @abstract 길안내 web view 가 present 될 뷰컨트롤러를 설정.
+ * @abstract 길안내 web view 가 present 될 뷰컨트롤러를 설정. 설정하지 않을 경우 자체적으로 최상단 뷰컨트롤러를 탐색하여 present 함.
  */
 @property (nonatomic, weak, nullable) UIViewController *presentingViewController;
 
+/*!
+ * @property presentedViewStatusBarStyle
+ * @abstract 길안내 web view 가 실행되는 동안의 status bar 스타일. 길안내가 종료되면 이전 스타일로 되돌아 감.
+ */
 @property (nonatomic, assign) UIStatusBarStyle presentedViewStatusBarStyle;
+
+/*!
+ * @property presentedViewBarTitleColor
+ * @abstract 길안내 web view 화면의 상단 바 title 색상.
+ */
 @property (nonatomic, strong, nullable) UIColor *presentedViewBarTitleColor;
+
+/*!
+ * @property presentedViewBarTintColor
+ * @abstract 길안내 web view 화면의 상단 바 배경색. presentedViewBarBackgroundImage가 설정될 경우 이 속성은 무시 됨.
+ */
 @property (nonatomic, strong, nullable) UIColor *presentedViewBarTintColor;
+
+/*!
+ * @property presentedViewBarButtonTintColor
+ * @abstract 길안내 web view 화면의 상단 바 버튼 색상.
+ */
 @property (nonatomic, strong, nullable) UIColor *presentedViewBarButtonTintColor;
+
+/*!
+ * @property presentedViewBarBackgroundImage
+ * @abstract 길안내 web view 화면의 상단 바 배경 이미지. 배경 이미지를 설정하면 presentedViewBarTintColor는 무시 됨.
+ */
 @property (nonatomic, strong, nullable) UIImage *presentedViewBarBackgroundImage;
 
 /*!
- 네비게이션 실행을 담당하는 singleton 인스턴스
+ 카카오내비 실행을 담당하는 singleton 인스턴스
  */
-+ (nonnull instancetype)defaultCenter;
++ (nonnull instancetype)sharedLauncher;
 
 /*!
  카카오내비 앱이 실행 가능한지 여부를 리턴합니다.
@@ -60,15 +82,17 @@
 /*!
  카카오내비 앱을 호출하여 목적지를 공유합니댜.
  @param params 목적지 공유에 필요한 파라미터. (required)
- @param error 실행하는 도중 발생한 오류.
+ @param error 실행하는 도중 발생한 오류 정보를 담을 포인터.
  */
-- (void)shareDestinationWithParams:(nonnull KNVParams *)params error:(NSError * _Nullable * _Nullable)error;
+- (void)shareDestinationWithParams:(KNVParams *)params error:(NSError * _Nullable * _Nullable)error;
 
 /*!
  카카오내비 앱을 호출하여 목적지까지 길안내를 실행합니다.
  @param params 목적지 길안내에 필요한 파라미터. (required)
- @param error 실행하는 도중 발생한 오류.
+ @param error 실행하는 도중 발생한 오류 정보를 담을 포인터.
  */
-- (void)navigateWithParams:(nonnull KNVParams *)params error:(NSError * _Nullable * _Nullable)error;
+- (void)navigateWithParams:(KNVParams *)params error:(NSError * _Nullable * _Nullable)error;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "KakaoNaviSDK"
-  s.version          = "1.0.70"
+  s.version          = "1.0.71"
   s.summary          = "KakaoNaviSDK for CocoaPods."
   s.homepage         = "https://github.com/Posteet/KakaoNaviSDK"
   s.license          = 'Kakao'

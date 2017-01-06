@@ -1,5 +1,5 @@
 /**
- * Copyright 2016-2017 Kakao Corp.
+ * Copyright 2017 Kakao Corp.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,10 +14,19 @@
  * limitations under the License.
  */
 
-#import "KNVLocation.h"
-#import "KNVOptions.h"
-#import "KNVParams.h"
-#import "KNVNaviLauncher.h"
-#import "KNVError.h"
-#import "KNVService.h"
-#import "KNVDestination.h"
+#import <Foundation/Foundation.h>
+
+/*!
+ @enum KakaoNavi Error Codes
+ @abstract Constants used by NSError to indicate errors in the KNVErrorDomain
+ */
+typedef NS_ENUM(NSInteger, KNVError)
+{
+    KNVErrorUnknown = 1,
+    KNVErrorNotSupported = 10,
+    KNVErrorBadParameter = 11,
+    KNVErrorMisConfigured = 12,
+    KNVErrorInternal = 13,
+};
+
+extern NSString *const KNVErrorDomain;
