@@ -1,4 +1,11 @@
 # KakaoNaviSDK
+
+카카오 정식 버전 지원.
+```
+source 'https://github.com/CocoaPods/Specs.git'
+pod 'KakaoOpenSDK/KakaoNavi'
+```
+
 https://developers.kakao.com/
 
 - Swift 일경우, Bridging-Header.h 에 아래 내용 추가.
